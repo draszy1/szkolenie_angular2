@@ -1,0 +1,22 @@
+<nav class="nav has-shadow">
+  <div class="container">
+    <div class="nav-left">
+      <a *ngFor="let item of menu" [routerLink]="item.path"
+         routerLinkActive="is-active" class="nav-item is-tab"
+         [routerLinkActiveOptions]="{exact: item.exact}">
+        {{item.label}}
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!--<h1 (click)="handleClick($event)">{{title}}</h1>
+
+<ma-home [owner]="title"></ma-home>
+<ma-home (timePassed)="handleTime($event)" owner="title.toUpperCase()"></ma-home>
+<ma-home owner="{{title.toUpperCase()}}"></ma-home>
+<ma-home [owner]="'title'"></ma-home>-->
+
+<main class="container">
+  <router-outlet></router-outlet>
+</main>

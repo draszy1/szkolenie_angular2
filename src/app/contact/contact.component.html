@@ -1,0 +1,29 @@
+<div class="columns">
+  <form class="column is-6 is-offset-3" #formRef="ngForm">
+    <h1 class="title">Contact us</h1>
+
+    <label for="name" class="label">Name:</label>
+    <div class="control">
+      <input #inputRef="ngModel" required minlength="3" [(ngModel)]="contact.name" name="name" id="name" type="text"
+             class="input" [class.is-danger]="showErrors(inputRef)">
+             <!--[ngClass]="{'is-danger': showErrors(inputRef)}"-->
+    </div>
+    <div class="is-danger help" *ngIf="showErrors(inputRef)">
+      <p *ngIf="inputRef.errors.required">This field is required</p>
+      <p *ngIf="inputRef.errors.minlength">You must write at least 3 characters</p>
+    </div>
+    
+    <label for="message" class="label">Message:</label>
+    <div class="control">
+      <textarea required #messageRef="ngModel" [(ngModel)]="contact.message" name="message" id="message" type="text" 
+                class="textarea" [class.is-danger]="showErrors(messageRef)"></textarea>
+    </div>
+    <div class="is-danger help" *ngIf="showErrors(messageRef)">
+      <p *ngIf="messageRef.errors.required">Message is required</p>
+    </div>
+
+    <button class="button is-primary is-pulled-right" [disabled]="formRef.invalid">Save</button>
+    <!--<pre>{{contact | json}}</pre>-->
+  </form>
+
+</div>

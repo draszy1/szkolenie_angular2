@@ -1,0 +1,24 @@
+<div class="columns">
+  <ma-poster class="column is-3" [tvShow]="show"></ma-poster>
+
+  <div class="column">
+    <h1 class="title">{{show?.name}}</h1>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th (click)="uppercase = !uppercase">season / episode</th>
+          <th>title</th>
+          <th>runtime</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let episode of episodes">
+          <td>{{episode | episode:uppercase}}</td>
+          <td>{{episode.name}}</td>
+          <td>{{episode.runtime}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

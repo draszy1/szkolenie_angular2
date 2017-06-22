@@ -1,0 +1,10 @@
+<ng-container *ngIf="tvShow">
+  <img [src]="imgUrl" alt="">
+  <ng-content></ng-content>
+  <h2 class="subtitle">
+    <a routerLink="/spotify/{{tvShow.id}}">
+      {{tvShow.name}}
+    </a>
+  </h2>
+</ng-container>
+<!--<ng-content select="button"></ng-content>-->

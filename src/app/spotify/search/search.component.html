@@ -1,0 +1,28 @@
+<div class="columns">
+  <div class="column is-3">
+    <h2 class="subtitle">Bookmarks</h2>
+    <div class="columns is-multiline">
+      <ma-poster class="column is-6" *ngFor="let bookmark of bookmarks"
+                 [tvShow]="bookmark" size="md">
+        <ma-remove-bookmark [item]="bookmark"></ma-remove-bookmark>
+      </ma-poster>
+    </div>
+  </div>
+
+  <div class="column">
+    <h2 class="subtitle">Search for albums</h2>
+    <form class="control field has-addons" [formGroup]="searchForm">
+      <input name="query" type="search" formControlName="query" class="input">
+      <button class="button is-primary" (click)="search(searchForm.value.query)">find</button>
+    </form>
+
+    <div class="columns is-multiline">
+      <div class="column is-4" *ngFor="let show of shows">
+        <ma-poster size="lg" [tvShow]="show" [maMarkBookmarked]="show">
+          <ma-add-bookmark [item]="show"></ma-add-bookmark>
+          <ma-remove-bookmark [item]="show"></ma-remove-bookmark>
+        </ma-poster>
+      </div>
+    </div>
+  </div>
+</div>
